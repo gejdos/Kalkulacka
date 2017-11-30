@@ -33,25 +33,25 @@ namespace Kalkulacka
                     Environment.Exit(1);
                     break;
                 default:
-                    Console.WriteLine("Operacia nebola najdena.\nSkuste to znova.");
+                    Console.WriteLine("Operacia nebola najdena.\nSkuste to znovu.");
                     break;
             }
         }
 
         private static double PrvyParameter(string operacia)
         {
-            string op;
+            string doplnit;
 
-            if (operacia == "f")
+            if (operacia.ToLower() == "f")
             {
-                op = " cele ";
+                doplnit = " cele ";
             }
             else
             {
-                op = " prve ";
+                doplnit = " prve ";
             }
 
-            Console.WriteLine("Zadajte{0}cislo.", op);
+            Console.WriteLine("Zadajte{0}cislo.", doplnit);
             return double.Parse(Console.ReadLine());
         }
 

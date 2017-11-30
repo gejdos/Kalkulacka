@@ -18,6 +18,8 @@ namespace Kalkulacka
                 Console.WriteLine("------------------------------------------------------------------------------------");
 
                 Kalkulacka.VyberOperaciu(Console.ReadLine());
+
+                Console.ReadKey();
             }
         }
     }
