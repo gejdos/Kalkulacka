@@ -12,11 +12,13 @@ namespace Kalkulacka
         {
             while (true)
             {
-                Console.WriteLine("\n-----------------\nVyberte operaciu\n-----------------");
+                Console.WriteLine("\n------------------------------------------------------------------------------------");
+                Console.WriteLine("Vyberte operaciu\n-----------------");
                 Console.WriteLine("s - spocitaj\no - odpocitaj\nn - vynasob\nd - vydel\nf - vypocitaj faktorial\nexit - ukoncit aplikaciu");
+                Console.WriteLine("------------------------------------------------------------------------------------");
+
                 Kalkulacka.VyberOperaciu(Console.ReadLine());
             }
-            
         }
     }
 }

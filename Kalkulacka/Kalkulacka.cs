@@ -10,24 +10,26 @@ namespace Kalkulacka
     {
         public static void VyberOperaciu(string operacia)
         {
-            switch (operacia)
+            switch (operacia.ToLower())
             {
                 case "s":
-                    Spocitaj(PrvyParameter(), DruhyParameter());
+                    Spocitaj(PrvyParameter(operacia), DruhyParameter());
                     break;
                 case "o":
-                    Odpocitaj(PrvyParameter(), DruhyParameter());
+                    Odpocitaj(PrvyParameter(operacia), DruhyParameter());
                     break;
                 case "n":
-                    Vynasob(PrvyParameter(), DruhyParameter());
+                    Vynasob(PrvyParameter(operacia), DruhyParameter());
                     break;
                 case "d":
-                    Vydel(PrvyParameter(), DruhyParameter());
+                    Vydel(PrvyParameter(operacia), DruhyParameter());
                     break;
                 case "f":
-                    VypocitajFaktorial(PrvyParameter());
+                    VypocitajFaktorial(PrvyParameter(operacia));
                     break;
                 case "exit":
+                    Console.WriteLine("Goodbye!");
+                    System.Threading.Thread.Sleep(1000);
                     Environment.Exit(1);
                     break;
                 default:
@@ -36,9 +38,20 @@ namespace Kalkulacka
             }
         }
 
-        private static double PrvyParameter()
+        private static double PrvyParameter(string operacia)
         {
-            Console.WriteLine("Zadajte cislo.");
+            string op;
+
+            if (operacia == "f")
+            {
+                op = " cele ";
+            }
+            else
+            {
+                op = " prve ";
+            }
+
+            Console.WriteLine("Zadajte{0}cislo.", op);
             return double.Parse(Console.ReadLine());
         }
 
@@ -71,6 +84,13 @@ namespace Kalkulacka
         private static void VypocitajFaktorial(double n)
         {
             long F;
+            int cislo;
+
+            if (!int.TryParse(n.ToString(), out cislo))
+            {
+                Console.WriteLine("Vstupnou hodnotou pre vypocet faktorialu musi byt cele cislo.");
+                return;
+            }
 
             F = 1;
             for (int i = 2; i <= n; i++)
